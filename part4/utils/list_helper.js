@@ -1,33 +1,57 @@
-const dummy = (blogs) => {
-  return 1;
-};
+const _ = require("lodash");
+const dummy = (blogs) => 1;
+
 const totalLikes = (blogs) => {
-  const reducer = (sum, item) => sum + item.likes;
+  if (blogs.length === 0) {
+    return 0;
+  }
 
-  return blogs.reduce(reducer, 0);
+  return blogs.reduce((sum, b) => sum + b.likes, 0);
 };
-const favouriteBlog = (blogs) => {
-  const reducer = (object, item) =>
-    object.likes && object.likes > item.likes ? object : item;
 
-  return blogs.reduce(reducer, {});
+const favoriteBlogs = (blogs) => {
+  if (blogs.length === 0) {
+    return undefined;
+  }
+
+  return blogs.sort((a, b) => b.likes - a.likes)[0];
 };
+
 const mostBlogs = (blogs) => {
-  let authors = blogs.map((blog) => blog.author);
-  authors = [...new Set(authors)];
+  if (blogs.length === 0) {
+    return undefined;
+  }
 
-  let blogsposted = new Array(authors.lenght).fill(0);
-  blogs.map((blog) => (blogsposted[authors.indexOf(blogs.author)] += 1));
-  let index = blogsposted.indexOf(Math.max(...blogsposted));
-  return {
-    author: authors[index],
-    blogs: blogsposted[index],
-  };
+  const byAuthor = _.groupBy(blogs, (b) => b.author);
+  const likeCounts = Object.keys(byAuthor).map((name) => {
+    return {
+      name,
+      blogs: byAuthor[name].length,
+    };
+  });
+
+  return likeCounts.sort((a, b) => b.blogs - a.blogs)[0].name;
+};
+
+const mostLikes = (blogs) => {
+  if (blogs.length === 0) {
+    return undefined;
+  }
+
+  const likeCounts = Object.keys(byAuthor).map((name) => {
+    return {
+      name,
+      likes: byAuthor[name].reduce((s, b) => s + b.likes, 0),
+    };
+  });
+
+  return likeCounts.sort((a, b) => b.likes - a.likes)[0].name;
 };
 
 module.exports = {
   dummy,
   totalLikes,
-  favouriteBlog,
+  favoriteBlogs,
   mostBlogs,
+  mostLikes,
 };

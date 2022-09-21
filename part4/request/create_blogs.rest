@@ -1,0 +1,10 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikd1aWxsZXJtbyIsImlkIjoiNjMyMzZiM2MzYTE1ZTUyMGRkMmU3Mjg0IiwiaWF0IjoxNjYzMjY2NzYwfQ.G9Xs-LS9j2RmPC6iKKm-IeHpXqXKsakvxJwHASTGjjM
+
+{
+    "title": "Benefits of Scrumban",
+    "url": "www.google.com",
+    "likes": 5,
+    "author": "Kalle Ilves"
+}
