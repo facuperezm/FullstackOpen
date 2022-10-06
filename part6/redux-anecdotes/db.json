@@ -1,0 +1,44 @@
+{
+  "anecdotes": [
+    {
+      "content": "this is the first anecdote",
+      "id": "12345",
+      "votes": 9
+    },
+    {
+      "content": "Second anecdote!",
+      "id": "51234",
+      "votes": 33
+    },
+    {
+      "content": "Third anecdote!!",
+      "id": "98703",
+      "votes": 0
+    },
+    {
+      "content": "Forth anecdote.",
+      "id": "46554",
+      "votes": 7
+    },
+    {
+      "content": "Fifth anecdote.",
+      "id": "10293",
+      "votes": 1
+    },
+    {
+      "content": "Sixth anecdote.",
+      "id": "47298",
+      "votes": 7
+    },
+    {
+      "content": "100 anecdote!",
+      "votes": 0,
+      "id": "333444"
+    },
+    {
+      "content": "Hola!",
+      "votes": 0,
+      "id": "5qkfgvK"
+    }
+  ]
+}
